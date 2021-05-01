@@ -1,5 +1,5 @@
 function shuffleAndDeal()
-  local deck = getObjectFromGUID(Global.getVar('DECK_GUID'))
+  local deck = getDeck()
   deck.randomize()
   deck.deal(6)
 
@@ -11,4 +11,15 @@ function shuffleAndDeal()
       deck.getPosition()[3]
     }
   })
+end
+
+function getDeck()
+  local zoneObjects = Global.getVar('deckZone').getObjects()
+  for _, item in ipairs(zoneObjects) do
+    if item.tag == 'Deck' then return item end
+  end
+  for _, item in ipairs(zoneObjects) do
+    if item.tag == 'Card' then return item end
+  end
+  return nil
 end

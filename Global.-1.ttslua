@@ -1,8 +1,9 @@
-DECK_GUID = "8d427e"
+DECK_ZONE_GUID = "5dc90b"
 
 --[[ The onLoad event is called after the game save finishes loading. --]]
 function onLoad()
     --[[ print('onLoad!') --]]
+    deckZone = getObjectFromGUID(DECK_ZONE_GUID)
 end
 
 --[[ The onUpdate event is called once per frame. --]]
