@@ -1,0 +1,14 @@
+function shuffleAndDeal()
+  local deck = getObjectFromGUID(Global.getVar('DECK_GUID'))
+  deck.randomize()
+  deck.deal(6)
+
+  deck.takeObject({
+    flip=true,
+    position={
+      deck.getPosition()[1]+3.4,
+      deck.getPosition()[2],
+      deck.getPosition()[3]
+    }
+  })
+end
